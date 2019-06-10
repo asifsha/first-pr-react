@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { TextInput } from './components/TextInput';
+import { LabelInput } from './components/LabelInput';
+
+function ComponentList(props) {
+
+  const listItems = props.components.map((component) =>
+    <li>{component}</li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
 
 function App() {
+
+  const componentList = [
+    <TextInput placeholder='type' />,
+    <LabelInput label='My label' />,
+
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      Below is the list of controls
+      <ComponentList components={componentList} />
     </div>
   );
 }
